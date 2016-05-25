@@ -1,10 +1,6 @@
 #SimpleBMP180 library
 
-This is a bare bone BMP085/BMP180 Library
-
-##Dependency
-
-This library uses the Wire library.
+This is a bare bone BMP085/BMP180 Library using the standard Wire library
 
 ##Usage
 
