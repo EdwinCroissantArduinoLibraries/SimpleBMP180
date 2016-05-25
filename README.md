@@ -1,6 +1,6 @@
 #SimpleBMP180 library
 
-This is bare bone BMP085/BMP180 Library
+This is a bare bone BMP085/BMP180 Library
 
 ##Dependency
 
