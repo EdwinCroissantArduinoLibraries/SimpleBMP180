@@ -1,12 +1,12 @@
 #######################################
-# Syntax Coloring Map   SimpleBMP180I2C
+# Syntax Coloring Map   SimpleBMP180
 #######################################
 
 #######################################
 # Datatypes (KEYWORD1)
 #######################################
 
-SimpleBMP180I2C			KEYWORD1
+SimpleBMP180			KEYWORD1
 
 #######################################
 # Methods and Functions (KEYWORD2)

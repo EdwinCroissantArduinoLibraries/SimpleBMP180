@@ -2,7 +2,7 @@
  * BMP180 barometric pressure sensor library for the Arduino
  * microcontroller.
  *
- * uses the I2C library from Wayne Truchsess
+ * Uses the Wire library
  *
  * Copyright (C) 2016 Edwin Croissant
  *
