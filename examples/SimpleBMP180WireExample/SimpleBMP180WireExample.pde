@@ -1,6 +1,6 @@
 #include "Arduino.h"
 #include <Wire.h>
-#include <SimpleBMP180.h>
+#include <SimpleBMP180Wire.h>
 
 /* This is an example for the BMP180 barometric pressure sensor
  * The BMP180 can be set to 4 hardware sampling modes:
@@ -20,7 +20,7 @@
  * on the board. In that case a level shifter is required.
  */
 
-SimpleBMP180 baro;
+SimpleBMP180Wire baro;
 
 void setup() {
 	Serial.begin(9600);
