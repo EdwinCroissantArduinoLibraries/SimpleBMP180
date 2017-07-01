@@ -66,20 +66,12 @@ boolean SimpleBMP180Wire::begin() {
 int32_t SimpleBMP180Wire::getPressure(uint8_t mode) {
 	int32_t B3, B5, B6, X1, X2, X3, p;
 	uint32_t B4, B7;
-
 	union {
 		int32_t int32;
 		struct {
-			uint8_t LSB, MSB;
+			uint8_t LLSB, LSB, MSB, MMSB;
 		};
-	} UT; //uncompensated temperature
-
-	union {
-		int32_t int32;
-		struct {
-			uint8_t XLSB, LSB, MSB;
-		};
-	} UP; // uncompensated pressure
+	} UT, UP; //uncompensated temperature and pressure
 
 	// clip the mode
 	if (mode > 3) mode = 3;
@@ -88,8 +80,10 @@ int32_t SimpleBMP180Wire::getPressure(uint8_t mode) {
 	writeCmd(readTemp);
 	delay(5);
 	retrieveData(data, 2);
-	UT.MSB = Wire.read();
+	UT.MMSB = 0;
+	UT.MSB = 0;
 	UT.LSB = Wire.read();
+	UT.LLSB = Wire.read();
 
 	// Calculate the temperature
 
@@ -117,9 +111,10 @@ int32_t SimpleBMP180Wire::getPressure(uint8_t mode) {
 	}
 
 	retrieveData(data, 3);
+	UP.MMSB = 0;
 	UP.MSB = Wire.read();
 	UP.LSB = Wire.read();
-	UP.XLSB = Wire.read();
+	UP.LLSB = Wire.read();
 	UP.int32 >>= (8 - mode);
 
 	// and calculate the pressure
